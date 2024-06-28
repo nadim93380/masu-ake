@@ -18,7 +18,7 @@ const CraftCard = ({ item }) => {
                 </div>
                 <p className="font-semibold">{item.subcategory_Name}</p>
                 <p>{item.short_description}</p>
-                <p>Status : {item.stockStatus}</p>
+                <p>Status : <span className="text-green-600">{item.stockStatus}</span></p>
                 <div className="card-actions">
                     <button className="btn btn-outline">Price : {item.price} $</button>
                     <button className="btn btn-primary">View Details</button>
