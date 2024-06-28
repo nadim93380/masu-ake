@@ -1,9 +1,13 @@
+import CraftContainer from "../Components/CraftContainer";
+import HomeBanner from "../Components/HomeBanner";
+
 
 
 const Home = () => {
     return (
         <div>
-            <h3>Hello From Home</h3>
+            <HomeBanner></HomeBanner>
+            <CraftContainer></CraftContainer>
         </div>
     );
 };

@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Watercolor Paint Set",
+      "subcategory_Name": "Paints",
+      "short_description": "High-quality watercolor paints with vibrant colors.",
+      "price": 25.99,
+      "rating": 4.8,
+      "customization": "no",
+      "processing_time": 2,
+      "stockStatus": "In stock"
+    },
+    {
+      "id": 2,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Graphite Pencil Set",
+      "subcategory_Name": "Pencils",
+      "short_description": "Professional graphite pencils for detailed drawings.",
+      "price": 15.50,
+      "rating": 4.7,
+      "customization": "no",
+      "processing_time": 1,
+      "stockStatus": "In stock"
+    },
+    {
+      "id": 3,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Acrylic Paint Set",
+      "subcategory_Name": "Paints",
+      "short_description": "Versatile acrylic paints for various surfaces.",
+      "price": 30.00,
+      "rating": 4.6,
+      "customization": "yes",
+      "processing_time": 3,
+      "stockStatus": "Made to Order"
+    },
+    {
+      "id": 4,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Canvas Panels",
+      "subcategory_Name": "Canvases",
+      "short_description": "Durable canvas panels for all types of paintings.",
+      "price": 20.00,
+      "rating": 4.9,
+      "customization": "no",
+      "processing_time": 2,
+      "stockStatus": "In stock"
+    },
+    {
+      "id": 5,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Oil Paint Set",
+      "subcategory_Name": "Paints",
+      "short_description": "Rich oil paints with excellent coverage and blending.",
+      "price": 45.00,
+      "rating": 4.5,
+      "customization": "no",
+      "processing_time": 2,
+      "stockStatus": "In stock"
+    },
+    {
+      "id": 6,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Charcoal Drawing Set",
+      "subcategory_Name": "Pencils",
+      "short_description": "Complete charcoal set for dramatic sketches.",
+      "price": 18.75,
+      "rating": 4.4,
+      "customization": "no",
+      "processing_time": 1,
+      "stockStatus": "In stock"
+    }
+  ]
+  
