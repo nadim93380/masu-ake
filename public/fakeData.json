@@ -70,6 +70,18 @@
       "customization": "no",
       "processing_time": 1,
       "stockStatus": "In stock"
+    },
+    {
+      "id": 7,
+      "image": "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "item_name": "Charcoal Drawing Set",
+      "subcategory_Name": "Pencils",
+      "short_description": "Complete charcoal set for dramatic sketches.",
+      "price": 18.75,
+      "rating": 4.4,
+      "customization": "no",
+      "processing_time": 1,
+      "stockStatus": "In stock"
     }
   ]
   
