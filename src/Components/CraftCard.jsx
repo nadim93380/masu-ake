@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 const CraftCard = ({ item }) => {
 
@@ -21,7 +23,7 @@ const CraftCard = ({ item }) => {
                 {/* <p>Status : <span className="text-green-600">{item.stockStatus}</span></p> */}
                 <div className="card-actions">
                     <button className="btn btn-outline">Price : {item.price} $</button>
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to='/craftDetails' className="btn btn-primary">View Details</Link>
                 </div>
             </div>
             <div className="absolute top-10 py-3 px-6 rounded-r-full bg-cyan-300">

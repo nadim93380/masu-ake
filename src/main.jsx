@@ -11,6 +11,8 @@ import ErrorPage from './Common/ErrorPage.jsx';
 import AllCraft from './Pages/AllCraft.jsx';
 import AddCraft from './Pages/AddCraft.jsx';
 import MyArt from './Pages/MyArt.jsx';
+import DetailsCraft from './Pages/DetailsCraft.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/myCraft",
         element:<MyArt></MyArt>
+      },
+      {
+        path: "/craftDetails",
+        element: <DetailsCraft></DetailsCraft>
       },
     ]
   },
