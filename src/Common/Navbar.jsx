@@ -35,10 +35,10 @@ const Navbar = () => {
                         {link}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Masu Ake's</a>
+                <a className="btn btn-ghost text-2xl font-bold">Masu Ake's</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 font-semibold">
                     {link}
                 </ul>
             </div>
