@@ -11,9 +11,9 @@ const AddCraft = () => {
 
 
     useEffect(() => {
-        fetch("/fakeCategoryData.json")
+        fetch("http://localhost:5000/categories")
             .then(res => res.json())
-            .then(data => setCategoryData(data))
+        .then(data=>setCategoryData(data))
     }, [])
 
     const handleAddCraft = e => {
@@ -174,7 +174,7 @@ const AddCraft = () => {
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             >
                                 {
-                                    categoryData.map(category => <option key={category.id}>{category.category_name}</option>)
+                                    categoryData.map(category => <option key={category.id}>{category.categoryName}</option>)
                                 }
                             </select>
                         </div>

@@ -4,20 +4,12 @@ import CategoryCard from "./CategoryCard";
 
 const CategorySection = () => {
     const [categoryData,setCategoryData]=useState([])
-    
-
-    // From Fake json
-    useEffect(() => {
-        fetch("/fakeCategoryData.json")
-            .then(res => res.json())
-        .then(data=>setCategoryData(data))
-    }, [])
 
     // From Api
     useEffect(() => {
         fetch("http://localhost:5000/categories")
             .then(res => res.json())
-        .then(data=>console.log(data))
+        .then(data=>setCategoryData(data))
     }, [])
     
 
