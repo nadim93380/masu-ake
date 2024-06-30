@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2'
+import { AuthContext } from "../authentication/AuthSharer";
 
 
 const AddCraft = () => {
-
+    
+    const {user}=useContext(AuthContext)
     const [categoryData, setCategoryData] = useState([])
 
 
@@ -25,10 +28,40 @@ const AddCraft = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const proccessingTime = form.proccessingTime.value;
+        const addedByEmail = user.email
 
-        const newCraft = { name, image, description, subCategory, stock, customization, price, rating, proccessingTime }
+        const newCraft = { name, image, description, subCategory, stock, customization, price, rating, proccessingTime,addedByEmail }
 
         console.log(newCraft)
+
+        fetch("http://localhost:5000/addCraft", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCraft)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your Product Has Been Added.",
+                        showConfirmButton: false,
+                        timer: 1700
+                    });
+                    form.reset()
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!Try Again",
+                      });
+                      
+                }
+            })
 
     }
 
@@ -41,6 +74,35 @@ const AddCraft = () => {
         const categoryImage = form.categoryImage.value;
         const newCategory = { categoryName, categoryImage };
         console.log(newCategory)
+
+        fetch("http://localhost:5000/addCategory", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCategory)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "New Category Has Been Added.",
+                        showConfirmButton: false,
+                        timer: 1700
+                    });
+                    form.reset()
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!Try Again",
+                      });
+                      
+                }
+            })
+
+
     }
 
 
@@ -59,6 +121,7 @@ const AddCraft = () => {
                         </label>
                         <div className="mt-2">
                             <input
+                                required
                                 type="text"
                                 name="name"
                                 id="first-name"
@@ -74,6 +137,7 @@ const AddCraft = () => {
                         </label>
                         <div className="mt-2">
                             <input
+                                required
                                 type="text"
                                 name="image"
                                 id="last-name"
@@ -156,7 +220,9 @@ const AddCraft = () => {
                         </label>
                         <div className="mt-2">
                             <input
-                                type="text"
+                                required
+                                type="number"
+                                step="0.1"
                                 name="price"
                                 id="city"
                                 autoComplete="address-level2"
@@ -171,6 +237,7 @@ const AddCraft = () => {
                         </label>
                         <div className="mt-2">
                             <input
+                                required
                                 type="number"
                                 step="0.1"
                                 name="rating"
@@ -208,6 +275,7 @@ const AddCraft = () => {
                     </label>
                     <div className="mt-2">
                         <input
+                            required
                             type="text"
                             name="categoryName"
                             id="region"
@@ -217,18 +285,19 @@ const AddCraft = () => {
                     </div>
                 </div>
                 <div className="">
-                        <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                            Sub Category Image
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                type="text"
-                                name="categoryImage"
-                                id="region"
-                                autoComplete="address-level1"
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
+                    <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
+                        Sub Category Image
+                    </label>
+                    <div className="mt-2">
+                        <input
+                            required
+                            type="text"
+                            name="categoryImage"
+                            id="region"
+                            autoComplete="address-level1"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                    </div>
                 </div>
                 <div className="mt-4 md:col-span-2">
                     <input type="submit" className="btn btn-block bg-pink-400" value="Add Sub Category" />

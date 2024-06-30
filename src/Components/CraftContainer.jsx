@@ -6,12 +6,30 @@ import { Link } from "react-router-dom";
 const CraftContainer = () => {
 
     const [allData, setAllData] = useState([])
+    const [showButton, setShowButton] = useState(false)
 
+    
+
+// Fake Json
     useEffect(() => {
         fetch("/fakeData.json")
             .then(res => res.json())
             .then(data => setAllData(data))
     }, [])
+    // Real Api
+    useEffect(() => {
+        fetch("http://localhost:5000/allCraft")
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }, [])
+
+    useEffect(() => {
+        if (allData.length > 6) {
+            setShowButton(true)
+        }
+    },[allData])
+
+
     return (
         <div>
             <div className="py-12 my-6 w-11/12 md:w-10/12 mx-auto flex justify-center items-center bg-gradient-to-l from-slate-200 rounded-2xl">
@@ -22,7 +40,7 @@ const CraftContainer = () => {
                 }
             </div>
             <div className="flex justify-center my-3">
-                <Link to='/allCraft' className="btn btn-outline">Show All</Link>
+                {showButton?<Link to='/allCraft' className="btn btn-outline">Show All</Link>:""}
             </div>
 
         </div>
