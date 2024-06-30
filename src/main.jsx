@@ -12,33 +12,44 @@ import AllCraft from './Pages/AllCraft.jsx';
 import AddCraft from './Pages/AddCraft.jsx';
 import MyArt from './Pages/MyArt.jsx';
 import DetailsCraft from './Pages/DetailsCraft.jsx';
+import Login from './Common/Login.jsx';
+import Register from './Common/Register.jsx';
+import AuthSharer from './authentication/AuthSharer.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element:<Home></Home>
+        element: <Home></Home>
       },
       {
         path: "/allCraft",
-        element:<AllCraft></AllCraft>
+        element: <AllCraft></AllCraft>
       },
       {
         path: "/addCraft",
-        element:<AddCraft></AddCraft>
+        element: <AddCraft></AddCraft>
       },
       {
         path: "/myCraft",
-        element:<MyArt></MyArt>
+        element: <MyArt></MyArt>
       },
       {
         path: "/craftDetails",
         element: <DetailsCraft></DetailsCraft>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       },
     ]
   },
@@ -46,6 +57,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthSharer>
+      <RouterProvider router={router} />
+    </AuthSharer>
   </React.StrictMode>,
 )

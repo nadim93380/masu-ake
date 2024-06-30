@@ -42,7 +42,7 @@ const Navbar = () => {
                     {link}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
                 <label className="grid cursor-pointer place-items-center">
                     <input
                         type="checkbox"
