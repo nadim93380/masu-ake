@@ -16,6 +16,7 @@ import Login from './Common/Login.jsx';
 import Register from './Common/Register.jsx';
 import AuthSharer from './authentication/AuthSharer.jsx';
 import PrivateRoute from './Layout/PrivateRoute.jsx';
+import ContactUs from './Pages/ContactUs.jsx';
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>
       },
     ]
   },

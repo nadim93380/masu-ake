@@ -13,7 +13,6 @@ const Navbar = () => {
     const handleLogout = () => {
         logout()
         return Swal.fire({
-            position: "top-end",
             icon: "success",
             title: "Logout Successfully",
             showConfirmButton: false,
@@ -26,7 +25,7 @@ const Navbar = () => {
         <li><NavLink to='/allCraft'>All Arts & Crafts</NavLink></li>
         {user && <li><NavLink to='/addCraft'>Add Craft</NavLink></li>}
         {user && <li><NavLink to='/myCraft'>My Craft</NavLink></li>}
-        <li><NavLink to='/contact'>Contact Us</NavLink></li>
+        <li><NavLink to='/contactUs'>Contact Us</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 max-w-7xl mx-auto">
@@ -102,14 +101,14 @@ const Navbar = () => {
                                 <div className="w-10 rounded-full">
                                     <img
                                         alt="Tailwind CSS Navbar component"
-                                        src={user.photoURL} />
+                                        src={user.photoURL?user.photoURL:"https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2247726673.jpg"} />
                                 </div>
                             </div>
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
                                 <li>
-                                    {user.displayName}
+                                    {user.displayName?user.displayName:"Not Provided"}
                                 </li>
                                 <li><a>Settings</a></li>
                                 <li><button onClick={handleLogout}>Logout</button></li>

@@ -29,7 +29,6 @@ const Login = () => {
         loginUser(email, password)
             .then(() => {
                 Swal.fire({
-                    position: "top-end",
                     icon: "success",
                     title: "Login Successfully",
                     showConfirmButton: false,
@@ -56,7 +55,6 @@ const Login = () => {
         loginWithGoogle()
             .then(() => {
                 Swal.fire({
-                    position: "top-end",
                     icon: "success",
                     title: "Login Successfully",
                     showConfirmButton: false,
@@ -80,7 +78,6 @@ const Login = () => {
         signInWithGitHub()
             .then(() => {
                 Swal.fire({
-                    position: "top-end",
                     icon: "success",
                     title: "Login Successfully",
                     showConfirmButton: false,

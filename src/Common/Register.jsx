@@ -1,16 +1,17 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../authentication/AuthSharer";
+import Swal from "sweetalert2";
 
 
 
 const Register = () => {
 
     
-
+    const navigate = useNavigate();
     const { creatUser, logout } = useContext(AuthContext);
     const [show,setShow]=useState(false)
     
@@ -47,19 +48,32 @@ const Register = () => {
 
         creatUser(email, password)
             .then(result => {
-                alert("User Created Successfully. Please Login")
                 updateProfile(result.user, {
                     displayName: name, photoURL: photo
                 })
+
                     // .then(() => {
                     //     navigate('/')
                     // })
                 logout()
+                Swal.fire({
+                    icon: "success",
+                    title: "User Created Successfully. Please Login",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+                setTimeout(() => {
+                    navigate('/login')
+                }, 2800)
                 
 
             })
             .catch(err => {
-                alert("User Already Existed")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "User Already Existed!",
+                  });
                 console.log(err.message)
             })
         e.target.reset()
