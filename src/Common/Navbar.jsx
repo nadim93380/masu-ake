@@ -1,8 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../authentication/AuthSharer";
 
 
 const Navbar = () => {
+
+    const { user,logout } = useContext(AuthContext)
+    console.log(user)
 
     const link = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -78,27 +83,33 @@ const Navbar = () => {
                     </svg>
                 </label>
                 {/* User Section */}
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                {
+                    user ?
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src={user.photoURL} />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
+                                <li>
+                                    {user.displayName}
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><button onClick={logout}>Logout</button></li>
+                            </ul>
                         </div>
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                        :
+                        <div className="flex justify-center items-center gap-3">
+                            <Link to="/login" className="btn btn-success btn-sm md:btn-md">Login</Link>
+                            <Link to="/register" className="btn btn-outline btn-sm md:btn-md">Register</Link>
+                        </div>
+                        
+                }
             </div>
         </div>
     );

@@ -2,8 +2,8 @@
 
 import { createContext, useEffect, useState } from "react";
 import { app } from "./firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+
 
 export const AuthContext = createContext(null)
 
@@ -54,7 +54,7 @@ const AuthSharer = ({ children }) => {
             unsubscribe()
         }
         
-    }, [])
+    }, [auth])
     
     // user Logout
     const logout = () => {

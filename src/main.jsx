@@ -15,6 +15,7 @@ import DetailsCraft from './Pages/DetailsCraft.jsx';
 import Login from './Common/Login.jsx';
 import Register from './Common/Register.jsx';
 import AuthSharer from './authentication/AuthSharer.jsx';
+import PrivateRoute from './Layout/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCraft",
-        element: <MyArt></MyArt>
+        element: <PrivateRoute><MyArt></MyArt></PrivateRoute>
       },
       {
         path: "/craftDetails",
