@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CraftCard = ({ item }) => {
 
     return (
-        <div className="card bg-base-100 w-96 shadow-xl hover:shadow-2xl relative">
+        <div className="card bg-base-100 shadow-xl hover:shadow-2xl relative">
             <figure className="px-5 pt-5">
                 <img
                     src={item.image}
