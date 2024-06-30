@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../authentication/AuthSharer";
+import Swal from 'sweetalert2'
 
 
 const Navbar = () => {
@@ -9,11 +10,22 @@ const Navbar = () => {
     const { user,logout } = useContext(AuthContext)
     console.log(user)
 
+    const handleLogout = () => {
+        logout()
+        return Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Logout Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
     const link = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allCraft'>All Arts & Crafts</NavLink></li>
-        <li><NavLink to='/addCraft'>Add Craft</NavLink></li>
-        <li><NavLink to='/myCraft'>My Craft</NavLink></li>
+        {user && <li><NavLink to='/addCraft'>Add Craft</NavLink></li>}
+        {user && <li><NavLink to='/myCraft'>My Craft</NavLink></li>}
         <li><NavLink to='/contact'>Contact Us</NavLink></li>
     </>
     return (
@@ -100,7 +112,7 @@ const Navbar = () => {
                                     {user.displayName}
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><button onClick={logout}>Logout</button></li>
+                                <li><button onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>
                         :

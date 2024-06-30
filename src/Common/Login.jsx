@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../authentication/AuthSharer";
+import Swal from 'sweetalert2'
 
 
 
@@ -27,13 +28,23 @@ const Login = () => {
         const password = e.target.password.value
         loginUser(email, password)
             .then(() => {
-                console.log("User Logged In")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1700
+                  });
                 setTimeout(() => {
                     navigate(`${to ? to : "/"}`)
                 }, 2000)
             })
             .catch(err => {
-                console.log("Something Wrong")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                  });
                 console.log(err.message)
             })
         e.target.reset()
@@ -44,13 +55,23 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         loginWithGoogle()
             .then(() => {
-                console.log("Login Successful")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1700
+                  });
                 setTimeout(() => {
                     navigate(`${to ? to : "/"}`)
                 }, 2000)
             })
             .catch(() => {
-                console.log("Something Wrong")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                  });
             })
     }
 
@@ -58,13 +79,23 @@ const Login = () => {
     const handleGitHubSignIn = () => {
         signInWithGitHub()
             .then(() => {
-                console.log("Login Successfully.Please wait.")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1700
+                  });
                 setTimeout(() => {
                     navigate(`${to ? to : "/"}`)
                 }, 2000)
             })
             .catch(() => {
-                console.log("Something Went Wrong")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                  });
             })
     }
 
