@@ -17,6 +17,7 @@ import Register from './Common/Register.jsx';
 import AuthSharer from './authentication/AuthSharer.jsx';
 import PrivateRoute from './Layout/PrivateRoute.jsx';
 import ContactUs from './Pages/ContactUs.jsx';
+import CategoryList from './Pages/CategoryList.jsx';
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: '/categoryCraft/:category',
+        element: <CategoryList></CategoryList>,
+        loader:({params})=>fetch(`http://localhost:5000/catgoryCraft/${params.category}`)
       },
       {
         path: "/contactUs",

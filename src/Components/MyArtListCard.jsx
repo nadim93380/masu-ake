@@ -5,13 +5,10 @@ import Swal from "sweetalert2";
 
 const MyArtListCard = (props) => {
     
-    console.log(props)
     const item = props.item
     const setReFecther = props.setReFecther
     const reFecther= props.reFecther
 
-
-    // { item,setReFecther }
     const handleDeleteCraft = (id) => {
         console.log(`delete ${id}`)
 
