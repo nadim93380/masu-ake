@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 
 const DetailsCraft = () => {
 
-    const [singleData, setSingleData] = useState([])
+    // const [singleData, setSingleData] = useState([])
 
-    useEffect(() => {
-        fetch("/fakeSingleData.json")
-            .then(res => res.json())
-            .then(data => {
-                setSingleData(data)
-                console.log(data)
-            })
-    }, [])
+    const singleData = useLoaderData()
+    console.log(singleData)
 
 
     return (
@@ -22,20 +17,20 @@ const DetailsCraft = () => {
             </div>
             <div className="border-b-2 py-3">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-2xl md:text-4xl font-bold">{singleData.item_name}</h3>
+                    <h3 className="text-2xl md:text-4xl font-bold">{singleData.name}</h3>
                     <p>Rating : {singleData.rating }</p>
                 </div>
                 <div className="flex justify-between items-center">
-                    <p className="text-xl md:text-2xl">{singleData.subcategory_Name}</p>
+                    <p className="text-xl md:text-2xl">{singleData.subCategory}</p>
                     <p className="text-xl md:text-2xl font-bold">Price : {singleData.price} $</p>
                 </div>
             </div>
             <div className=" py-3 space-y-3">
                 <h3 className="text-xl md:text-3xl font-semibold border-b-2">Additional Information</h3>
-                <p className="text-sm md:text-xl">- {singleData.short_description}</p>
+                <p className="text-sm md:text-xl">- {singleData.description}</p>
                 <p className="text-sm md:text-xl">- Proccessing time : {singleData.processing_time} days</p>
                 <p className="text-sm md:text-xl">- Customization : {singleData.customization}</p>
-                <p className="text-sm md:text-xl">- Stock : {singleData.stockStatus}</p>
+                <p className="text-sm md:text-xl">- Stock : {singleData.stock}</p>
                 
 
             </div>

@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MyArtListCard from "../Components/MyArtListCard";
+import { AuthContext } from "../authentication/AuthSharer";
 
 
 const MyArt = () => {
-    const [allData, setAllData] = useState([])
-
-
+    const [userAllCraft, setuserAllCraft] = useState([])
+    const {user}=useContext(AuthContext)
 
     // Fake Json
     useEffect(() => {
-        fetch("/fakeData.json")
+        fetch(`http://localhost:5000/userCraft/${user.email}`)
             .then(res => res.json())
-            .then(data => setAllData(data))
+            .then(data => setuserAllCraft(data))
     }, [])
     
 
@@ -28,7 +28,7 @@ const MyArt = () => {
 
             <div>
                 {
-                    allData.map(item =><MyArtListCard key={item.id} item={item}></MyArtListCard>)
+                    userAllCraft.map(item =><MyArtListCard key={item._id} item={item}></MyArtListCard>)
                 }
             </div>
         </div>

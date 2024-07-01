@@ -5,22 +5,13 @@ import { Link } from "react-router-dom";
 
 const CraftContainer = () => {
 
-    const [allData, setAllData] = useState([])
     const [showButton, setShowButton] = useState(false)
+    const [allData, setAllData] = useState([])
 
-    
-
-// Fake Json
-    useEffect(() => {
-        fetch("/fakeData.json")
-            .then(res => res.json())
-            .then(data => setAllData(data))
-    }, [])
-    // Real Api
     useEffect(() => {
         fetch("http://localhost:5000/allCraft")
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setAllData(data))
     }, [])
 
     useEffect(() => {
