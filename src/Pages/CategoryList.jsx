@@ -5,7 +5,6 @@ import CraftCard from "../Components/CraftCard";
 const CategoryList = () => {
 
     const data = useLoaderData()
-    console.log(data)
     return (
         <div className="w-11/12 md:w-10/12 mx-auto py-3 grid grid-cols-1 md:grid-cols-3">
             {

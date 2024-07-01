@@ -18,6 +18,7 @@ import AuthSharer from './authentication/AuthSharer.jsx';
 import PrivateRoute from './Layout/PrivateRoute.jsx';
 import ContactUs from './Pages/ContactUs.jsx';
 import CategoryList from './Pages/CategoryList.jsx';
+import UpdateCraft from './Pages/UpdateCraft.jsx';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "/myCraft",
         element: <PrivateRoute><MyArt></MyArt></PrivateRoute>
+      },
+      {
+        path: "/update/:id",
+        element: <PrivateRoute><UpdateCraft></UpdateCraft></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/craftDetails/${params.id}`)
       },
       {
         path: "/craftDetails/:id",

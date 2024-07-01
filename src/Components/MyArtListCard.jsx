@@ -59,7 +59,7 @@ const MyArtListCard = (props) => {
                     </div>
                     <div className="flex flex-col lg:flex-row gap-3">
                         <Link to={`/craftDetails/${item._id}`} className="btn btn-accent rounded-full">View Details</Link>
-                        <button className="btn bg-blue-100 text-blue-700 rounded-full" disabled><Link>Update</Link></button>
+                        <Link to={`/update/${item._id}`} className="btn bg-blue-100 text-blue-700 rounded-full">Update</Link>
                         <Link onClick={() => handleDeleteCraft(item._id)} className="btn btn-error rounded-full">Delete</Link>
                     </div>
                 </div>
