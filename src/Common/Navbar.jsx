@@ -51,7 +51,7 @@ const Navbar = () => {
                         {link}
                     </ul>
                 </div>
-                <a className="text-xl md:text-2xl font-bold">Masu Ake's <span className="text-orange-500"><Typewriter loop={0} words={['Art..', 'Paint...', 'Journal....']}></Typewriter></span></a>
+                <a className="text-sm md:text-2xl font-bold">Masu Ake's <span className="text-orange-500"><Typewriter loop={0} words={['Art..', 'Paint...', 'Journal....']}></Typewriter></span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-semibold">

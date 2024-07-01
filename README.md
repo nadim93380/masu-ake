@@ -10,5 +10,5 @@ Click Here To Visit -[Masu Ake Website](https://masu-ake.netlify.app/)
 - For Better User Interface Some Packages have installed And Used.
 
 Packages Installed
--React Tooltip
--React Typewriter
+- React Tooltip
+- React Typewriter

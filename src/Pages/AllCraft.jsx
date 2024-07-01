@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CraftCard from "../Components/CraftCard";
+import TableRow from "../Components/TableRow";
 
 
 const AllCraft = () => {
@@ -13,10 +13,31 @@ const AllCraft = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-11/12 md:w-10/12 mx-auto">
-                {
-                    allData.map(item => <CraftCard key={item._id} item={item}></CraftCard>)
-                }
+            <div className="w-11/12 md:w-10/12 mx-auto">
+
+                <div className="flex justify-center w-full">
+                    <table className="table w-full">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th className="hidden md:block">Index</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th className="hidden md:block">Customization</th>
+                                <th>Stock</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {
+                                allData.map((item,index) => <TableRow key={item._id} item={item} index={index}></TableRow>)
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     );

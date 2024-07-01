@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Link } from "react-router-dom";
+
 
 const CustomOrder = () => {
     return (
@@ -10,7 +12,7 @@ const CustomOrder = () => {
 				<span className="text-xs uppercase dark:text-gray-600">Join, it's more flexible</span>
 				<h3 className="text-3xl font-bold">We're available to showcase your thoughts.</h3>
 				<p className="my-6 dark:text-gray-600">A custom design is a unique and personalized design created to meet a client's requirements and preferences.</p>
-				<button type="button" className="self-start btn">Contact Now</button>
+				<Link to='/contactUs' className="self-start btn">Contact Now</Link>
 			</div>
 		</div>
     );
