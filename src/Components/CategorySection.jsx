@@ -14,7 +14,7 @@ const CategorySection = () => {
     
 
     return (
-        <div className="flex justify-around items-center py-4 md:py-10 flex-wrap bg-pink-50 rounded-tl-full rounded-br-full mt-9">
+        <div className="flex justify-around items-center py-4 md:py-10 flex-wrap bg-pink-50 md:rounded-tl-full md:rounded-br-full mt-9">
             {
                 categoryData.map(category=><CategoryCard key={category._id} category={category}></CategoryCard>)
             }

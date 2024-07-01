@@ -5,6 +5,8 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../authentication/AuthSharer";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,24 +26,23 @@ const Register = () => {
         const name = e.target.name.value
         const photo = e.target.photo.value
         const password = e.target.password.value
-        console.log(email, password, typeof (password), name, photo)
 
 
 
         if (!/[A-Z]/.test(password)) {
          
-            alert("Password Must Have One Uppercase")
+            toast.error("Password Must Have One Uppercase")
             e.target.password.value = ""
             return
         }
         else if (!/[a-z]/.test(password)) {
         
-            alert("Password Must Have One Lowecase")
+            toast.error("Password Must Have One Lowecase")
             e.target.password.value = ""
             return
         }
         else if (password.length < 6) {
-            alert("Password should atleast 6 character")
+            toast.error("Password should atleast 6 character")
             e.target.password.value = ""
             return
         }
@@ -51,10 +52,6 @@ const Register = () => {
                 updateProfile(result.user, {
                     displayName: name, photoURL: photo
                 })
-
-                    // .then(() => {
-                    //     navigate('/')
-                    // })
                 logout()
                 Swal.fire({
                     icon: "success",
@@ -68,13 +65,12 @@ const Register = () => {
                 
 
             })
-            .catch(err => {
+            .catch(()=> {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
                     text: "User Already Existed!",
                   });
-                console.log(err.message)
             })
         e.target.reset()
     }
@@ -110,6 +106,7 @@ const Register = () => {
                     <Link to='/Login' className="text-blue-600">Login</Link>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

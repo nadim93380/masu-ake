@@ -107,16 +107,15 @@ const Navbar = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
-                                <li>
+                                <div className="text-center font-bold">
                                     {user.displayName?user.displayName:"Not Provided"}
-                                </li>
-                                <li><a>Settings</a></li>
+                                </div>
                                 <li><button onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>
                         :
                         <div className="flex justify-center items-center gap-1 md:gap-3">
-                            <Link to="/login" className="btn btn-success btn-sm md:btn-md">Login</Link>
+                            <Link to="/login" className="btn btn-success text-white btn-sm md:btn-md">Login</Link>
                             <Link to="/register" className="btn btn-outline btn-sm md:btn-md">Register</Link>
                         </div>
                         
