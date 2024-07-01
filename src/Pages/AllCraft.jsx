@@ -6,7 +6,7 @@ const AllCraft = () => {
     const [allData, setAllData] = useState([])
 
     useEffect(() => {
-        fetch("/fakeData.json")
+        fetch("http://localhost:5000/allCraft")
             .then(res => res.json())
             .then(data => setAllData(data))
     }, [])

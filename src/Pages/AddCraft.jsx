@@ -28,9 +28,9 @@ const AddCraft = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const proccessingTime = form.proccessingTime.value;
-        const addedByEmail = user.email
+        const email = user.email
 
-        const newCraft = { name, image, description, subCategory, stock, customization, price, rating, proccessingTime,addedByEmail }
+        const newCraft = { name, image, description, subCategory, stock, customization, price, rating, proccessingTime,email }
 
         console.log(newCraft)
 
@@ -153,10 +153,10 @@ const AddCraft = () => {
                         </label>
                         <div className="mt-2">
                             <input
-                                id="email"
+                                id="text"
                                 name="description"
-                                type="email"
-                                autoComplete="email"
+                                type="text"
+                                
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>

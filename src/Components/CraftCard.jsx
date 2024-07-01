@@ -11,15 +11,16 @@ const CraftCard = ({ item }) => {
                 <img
                     src={item.image}
                     alt="Shoes"
-                    className="rounded-xl" />
+                    className="rounded-xl w-full object-cover h-56" />
             </figure>
             <div className="card-body items-center text-center">
                 <div className="flex gap-3 items-end">
-                    <h2 className="card-title">{item.item_name}</h2>
+                    <p className="font-semibold">{item.subCategory}</p>
                     <p>Rating : {item.rating}</p>
                 </div>
-                <p className="font-semibold">{item.subcategory_Name}</p>
-                <p>{item.short_description}</p>
+                <h2 className="text-xl font-bold text-center">{item.name}</h2>
+
+                <p>{item.description}</p>
                 {/* <p>Status : <span className="text-green-600">{item.stockStatus}</span></p> */}
                 <div className="card-actions">
                     <button className="btn btn-outline">Price : {item.price} $</button>
@@ -27,7 +28,7 @@ const CraftCard = ({ item }) => {
                 </div>
             </div>
             <div className="absolute top-10 py-3 px-6 rounded-r-full bg-cyan-300">
-                <h3 className="text-blue-900 font-semibold">{item.stockStatus}</h3>
+                <h3 className="text-blue-900 font-semibold">{item.stock}</h3>
             </div>
         </div>
     );
