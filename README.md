@@ -1,8 +1,14 @@
-# React + Vite
+# B9A10Type-02 Requirements
+Website of Category : Painting and Drawing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Click Here To Visit -[Masu Ake Website](https://masu-ake.netlify.app/)
 
-Currently, two official plugins are available:
+- This is the official website of Masu Ake PLC limited.
+- User Can Login And Add Data In this Website.
+- As User IS adding data they can customize their data with update delete.
+- This website is connected to a database. So every data will be kept.
+- For Better User Interface Some Packages have installed And Used.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Packages Installed
+-React Tooltip
+-React Typewriter
