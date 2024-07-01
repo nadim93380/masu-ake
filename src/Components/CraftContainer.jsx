@@ -9,7 +9,7 @@ const CraftContainer = () => {
     const [allData, setAllData] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/allCraft")
+        fetch("https://masu-server.vercel.app/allCraft")
             .then(res => res.json())
             .then(data => setAllData(data))
     }, [])

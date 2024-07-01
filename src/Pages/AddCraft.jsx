@@ -11,7 +11,7 @@ const AddCraft = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("https://masu-server.vercel.app/categories")
             .then(res => res.json())
         .then(data=>setCategoryData(data))
     }, [])
@@ -34,7 +34,7 @@ const AddCraft = () => {
 
         console.log(newCraft)
 
-        fetch("http://localhost:5000/addCraft", {
+        fetch("https://masu-server.vercel.app/addCraft", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -75,7 +75,7 @@ const AddCraft = () => {
         const newCategory = { categoryName, categoryImage };
         console.log(newCategory)
 
-        fetch("http://localhost:5000/addCategory", {
+        fetch("https://masu-server.vercel.app/addCategory", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

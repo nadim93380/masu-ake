@@ -64,7 +64,7 @@ const AuthSharer = ({ children }) => {
     // Additional Rendering
     const [categoryData, setCategoryData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("https://masu-server.vercel.app/categories")
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [])

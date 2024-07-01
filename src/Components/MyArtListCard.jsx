@@ -21,7 +21,7 @@ const MyArtListCard = (props) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then(() => {
-            fetch(`http://localhost:5000/removeCraft/${id}`, {
+            fetch(`https://masu-server.vercel.app/removeCraft/${id}`, {
                 method:"DELETE"
             })
                 .then(res => res.json())
@@ -44,7 +44,7 @@ const MyArtListCard = (props) => {
         <div className="rounded-lg border px-6 py-6 mt-3">
             <div className="flex flex-col lg:flex-row gap-6">
                 <div>
-                    <img src={item.image} className="max-w-sm object-cover w-full rounded-lg shadow-xl" />
+                    <img src={item.image} className="w-full h-52 object-cover rounded-lg shadow-xl" />
                 </div>
                 <div className="text-center lg:text-left">
                     <h1 className="text-4xl font-bold">{item.name}</h1>

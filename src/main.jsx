@@ -46,12 +46,12 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateCraft></UpdateCraft></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/craftDetails/${params.id}`)
+        loader:({params})=>fetch(`https://masu-server.vercel.app/craftDetails/${params.id}`)
       },
       {
         path: "/craftDetails/:id",
         element: <PrivateRoute><DetailsCraft></DetailsCraft></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/craftDetails/${params.id}`)
+        loader: ({params})=>fetch(`https://masu-server.vercel.app/craftDetails/${params.id}`)
       },
       {
         path: "/login",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       {
         path: '/categoryCraft/:category',
         element: <CategoryList></CategoryList>,
-        loader:({params})=>fetch(`http://localhost:5000/catgoryCraft/${params.category}`)
+        loader:({params})=>fetch(`https://masu-server.vercel.app/catgoryCraft/${params.category}`)
       },
       {
         path: "/contactUs",

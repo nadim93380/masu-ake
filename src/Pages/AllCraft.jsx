@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
 import TableRow from "../Components/TableRow";
+import Loading from "../Common/Loading";
 
 
 const AllCraft = () => {
     const [allData, setAllData] = useState([])
+    const [showLoader, setShowLoader] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:5000/allCraft")
+        fetch("https://masu-server.vercel.app/allCraft")
             .then(res => res.json())
-            .then(data => setAllData(data))
+            .then(data => {
+                setAllData(data)
+                setShowLoader(false)
+            })
     }, [])
+
+    if (showLoader) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -31,7 +40,7 @@ const AllCraft = () => {
                         <tbody>
 
                             {
-                                allData.map((item,index) => <TableRow key={item._id} item={item} index={index}></TableRow>)
+                                allData.map((item, index) => <TableRow key={item._id} item={item} index={index}></TableRow>)
                             }
 
                         </tbody>

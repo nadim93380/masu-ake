@@ -14,7 +14,7 @@ const MyArt = () => {
 
     // Real Api data
     useEffect(() => {
-        fetch(`http://localhost:5000/userCraft/${user.email}`)
+        fetch(`https://masu-server.vercel.app/userCraft/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setuserAllCraft(data)

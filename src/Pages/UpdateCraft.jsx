@@ -11,14 +11,6 @@ const UpdateCraft = () => {
 
     const {categoryData} = useContext(AuthContext)
 
-    // For Category List
-    // const [categoryData, setCategoryData] = useState([])
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/categories")
-    //         .then(res => res.json())
-    //         .then(data => setCategoryData(data))
-    // }, [])
-
     const handleAddCraft = e => {
         e.preventDefault()
         const form = e.target;
@@ -34,7 +26,7 @@ const UpdateCraft = () => {
 
         const newCraft = { name, image, description, subCategory, stock, customization, price, rating, proccessingTime }
 
-        fetch(`http://localhost:5000/updateCraft/${item._id}`, {
+        fetch(`https://masu-server.vercel.app/updateCraft/${item._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
