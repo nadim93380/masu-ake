@@ -2,7 +2,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../authentication/AuthSharer";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { Typewriter } from 'react-simple-typewriter';
 
 
 const Navbar = () => {
@@ -50,7 +51,7 @@ const Navbar = () => {
                         {link}
                     </ul>
                 </div>
-                <a className="text-xl md:text-2xl font-bold">Masu Ake's</a>
+                <a className="text-xl md:text-2xl font-bold">Masu Ake's <span className="text-orange-500"><Typewriter loop={0} words={['Art..', 'Paint...', 'Journal....']}></Typewriter></span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-semibold">

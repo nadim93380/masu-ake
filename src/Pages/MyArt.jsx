@@ -75,12 +75,12 @@ const MyArt = () => {
                 <div className="flex justify-end my-4 pb-2 border-b-2">
                     <form onSubmit={handleShow}>
                         <select id="pricingType" name="filter"
-                            className="h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
+                            className="h-10 border-2 focus:outline-none focus:border-sky-500 rounded px-2 md:px-3 py-0 tracking-wider">
                             <option value="all" selected="">All</option>
                             <option value="yes">Customizable</option>
                             <option value="no">Not Customizable</option>
                         </select>
-                        <button className="btn btn-outline btn-md">Update</button>
+                        <button className="ml-2 h-10 border-2 focus:outline-none rounded px-2 md:px-3 py-0">Filter</button>
                     </form>
                 </div>
 

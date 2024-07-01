@@ -29,7 +29,7 @@ const HomeBanner = () => {
                         <img src="https://images.pexels.com/photos/4693135/pexels-photo-4693135.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="w-full h-[60vh] md:h-[80vh] object-cover" />
                         <div className="flex flex-col justify-center items-center md:items-start pl-0 md:pl-32 absolute w-full bg-gradient-to-r from-slate-700 h-full">
                         <h3 className='text-2xl md:text-4xl text-center text-white font-bold mb-4'>Painting is just another way of keeping a diary.</h3>
-                        <h3 className='text-sm md:text-xl text-center text-yellow-500 font-bold'>_Pablo Picasso</h3>
+                            <h3 className='text-sm md:text-xl text-center text-yellow-500 font-bold'>_Pablo Picasso</h3>
                         </div>
                     </div>
                 </SwiperSlide>

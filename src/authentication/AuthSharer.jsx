@@ -61,6 +61,14 @@ const AuthSharer = ({ children }) => {
         return signOut(auth)
     }
 
+    // Additional Rendering
+    const [categoryData, setCategoryData] = useState([])
+    useEffect(() => {
+        fetch("http://localhost:5000/categories")
+            .then(res => res.json())
+            .then(data => setCategoryData(data))
+    }, [])
+
     const sharing = {
         creatUser,
         loginUser,
@@ -70,7 +78,8 @@ const AuthSharer = ({ children }) => {
         loading,
         setLoading,
         loginWithGoogle,
-        signInWithGitHub
+        signInWithGitHub,
+        categoryData
     }
 
     return (

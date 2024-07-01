@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
+import { IoStar } from "react-icons/io5";
 
 
 const CraftCard = ({ item }) => {
@@ -16,7 +17,7 @@ const CraftCard = ({ item }) => {
             <div className="card-body items-center text-center">
                 <div className="flex gap-3 items-end">
                     <p className="font-semibold">{item.subCategory}</p>
-                    <p>Rating : {item.rating}</p>
+                    <p className="flex justify-center items-center gap-1"><IoStar /> {item.rating}</p>
                 </div>
                 <h2 className="text-xl font-bold text-center">{item.name}</h2>
 

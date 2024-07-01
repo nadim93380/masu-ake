@@ -1,18 +1,18 @@
-// import { useContext, useEffect } from "react";
-// import { AuthContext } from "../authentication/AuthSharer";
+import { useContext } from "react";
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../authentication/AuthSharer";
 
 
 const UpdateCraft = () => {
 
-    // const { user } = useContext(AuthContext)
-    // const [categoryData, setCategoryData] = useState([])
-
     const item = useLoaderData()
     const navigate = useNavigate()
 
-    
+    const {categoryData} = useContext(AuthContext)
+
+    // For Category List
+    // const [categoryData, setCategoryData] = useState([])
     // useEffect(() => {
     //     fetch("http://localhost:5000/categories")
     //         .then(res => res.json())
@@ -45,7 +45,7 @@ const UpdateCraft = () => {
             .then(data => {
                 console.log(data)
 
-                if (data.modifiedCount>0) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         icon: "success",
                         title: "Your Product Has Been Added.",
@@ -123,50 +123,54 @@ const UpdateCraft = () => {
                     </div>
                     {/* Subcategory */}
                     <div className="sm:col-span-2">
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                            Sub Category
+                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            Subcategory Name
                         </label>
                         <div className="mt-2">
-                            <input
-                                id="text"
+                            <select
+                                id="country"
                                 name="subCategory"
-                                type="text"
                                 defaultValue={item.subCategory}
-                                disabled
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                                {
+                                    categoryData.map(category => <option key={category.id}>{category.categoryName}</option>)
+                                }
+                            </select>
                         </div>
                     </div>
                     {/* Stock */}
                     <div className="sm:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                            Stock
+                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            Stock Status
                         </label>
                         <div className="mt-2">
-                            <input
-                                id="text"
+                            <select
+                                id="country"
                                 name="stock"
-                                type="text"
                                 defaultValue={item.stock}
-                                disabled
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                                <option>In Stock</option>
+                                <option>Made To Order</option>
+                            </select>
                         </div>
                     </div>
                     {/* Customization*/}
                     <div className="sm:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                             Customization
                         </label>
                         <div className="mt-2">
-                            <input
-                                id="text"
+                            <select
+                                id="country"
                                 name="customization"
-                                type="text"
                                 defaultValue={item.customization}
-                                disabled
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
                         </div>
                     </div>
 
@@ -220,7 +224,7 @@ const UpdateCraft = () => {
                     </div>
                 </div>
                 <div className="mt-4">
-                    <input type="submit" className="btn btn-block bg-green-500" value="Add Item" />
+                    <input type="submit" className="btn btn-block bg-green-500" value="Update Item" />
                 </div>
             </form>
         </div>
